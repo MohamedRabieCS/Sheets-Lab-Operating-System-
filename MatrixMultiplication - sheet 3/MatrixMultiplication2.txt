@@ -1,0 +1,86 @@
+
+package sheet3;
+
+
+import java.util.Scanner;
+
+
+
+public class Sheet3 {
+
+    
+    public static void main(String[] args) {
+        
+        // TODO code application logic here
+        Scanner input = new Scanner(System.in);
+
+        int R, C, r, c, S = 0;
+        int i, j, k;
+ 
+      
+      System.out.println("Enter the number of rows and columns");
+      R = input.nextInt();
+      C = input.nextInt();
+      int first[][] = new int[R][C];
+ 
+      
+      System.out.println("Enter elements");
+ 
+      for (i = 0; i < R; i++)
+         for (j = 0; j < C; j++)
+            first[i][j] = input.nextInt();
+ 
+      System.out.println("Enter the number of rows and columns ");
+      r = input.nextInt();
+      c = input.nextInt();
+ 
+      if (C != r)
+         System.out.println("The matrices can't be multiplied with each other");
+      else
+      {
+         int second[][] = new int[r][c];
+         int multiply[][] = new int[R][c];
+ 
+         System.out.println("Enter elements");
+ 
+         for (i = 0; i < r; i++)
+            for (j = 0; j < c; j++)
+               second[i][j] = input.nextInt();
+ 
+         for (i = 0; i < R; i++)
+         {
+            for (j = 0; j < c; j++)
+            {  
+               for (k = 0; k < r; k++)
+               {
+                  S = S + first[i][k]*second[k][j];
+               }
+ 
+               multiply[i][j] =S;
+               S = 0;
+            }
+         }
+ 
+         System.out.println("the out put is ");
+ 
+         for (i = 0; i < R; i++)
+         {
+            for (j = 0; j < c; j++)
+               System.out.print(multiply[i][j]+"\t");
+ 
+            System.out.print("\n");
+         }
+      }
+   }
+
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+
